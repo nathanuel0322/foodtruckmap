@@ -2,23 +2,17 @@ import './App.css';
 import { useEffect, useState, useRef } from 'react';
 import { useGeolocated } from 'react-geolocated';
 import {FaMapMarkerAlt} from 'react-icons/fa'
-import Map, {Marker} from 'react-map-gl';
+import Map, { Marker } from 'react-map-gl';
 import ReactGoogleAutocomplete from 'react-google-autocomplete';
-import 'mapbox-gl/dist/mapbox-gl.css';
 
 function App() {
-  const [searchinput, setSearchinput] = useState("")
   const [places, setPlaces] = useState([])
   const [filteredplaces, setFilteredplaces] = useState([])
   const [mapstats, setMapstats] = useState({})
   const [mapReady, setMapReady] = useState(false)
-  const mapRef = useRef(null)
-
-  /**
-   * @description This function is called when the map is ready
-   * @param {Object} map - reference to the map instance
-   * @param {Object} maps - reference to the maps library
-   */
+  const [isEnterPressed, setIsEnterPressed] = useState(false);
+  const mapRef = useRef();
+  
   const onMapLoad = ( map, event ) => {
     mapRef.current = map.target;
     console.log("map is: ", map.target)
@@ -37,6 +31,8 @@ function App() {
     fetch("https://data.sfgov.org/resource/rqzj-sfat.json")
       .then(response => response.json())
       .then(data => {
+        console.log("data is: ", data)
+        console.log("type of data is: ", typeof data)
         setPlaces(data)
       })
     console.log("coords are: ", coords)
@@ -56,6 +52,14 @@ function App() {
     longitude: -122.431297,
     zoom: 11
   });
+
+  // const handleKeyDown = (e) => {
+  //   if (e.key === 'Enter') {
+  //     setIsEnterPressed(true);
+  //   } else {
+  //     setIsEnterPressed(false);
+  //   }
+  // };
 
   useEffect(() => {
     // whenever map is changed, check to see if the latitude and longitude of each place is within the bounds of the map, display if it is
@@ -84,11 +88,24 @@ function App() {
           <ReactGoogleAutocomplete
             apiKey={process.env.REACT_APP_API_KEY}
             onPlaceSelected={(place) => {
-              console.log(place);
+              console.log("place pressed is:", place);
+              if (place) {
+                if (place.geometry) {
+                  mapRef.current.easeTo({
+                    center: [place.geometry.location.lng(), place.geometry.location.lat()],
+                    duration: 2500
+                  });
+                } else {
+                  alert("Please select a valid location!")
+                }
+                setIsEnterPressed(false);
+              }
             }}
             id='searchbar'
           />
           <Map
+            ref={mapRef}
+            id='mainmap'
             mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             onViewportChange={setViewport}
             onLoad={onMapLoad}
@@ -101,21 +118,20 @@ function App() {
             mapStyle="mapbox://styles/mapbox/streets-v9"
           >
             {filteredplaces.map((place, index) => {
-              // console.log("place is: ", place)
               return (
                 <Marker key={index} anchor="bottom" latitude={parseFloat(place.latitude)} longitude={parseFloat(place.longitude)}
                   style={{transform: 'none !important'}}
                   // pitchAlignment='viewport' 
                   // offset={[0, 180]}
-                  // onClick={() => onMarkerClick(index, parseFloat(place.latitude), parseFloat(place.longitude))}
+                  onClick={() => onMarkerClick(index, parseFloat(place.latitude), parseFloat(place.longitude))}
                 >
                 <FaMapMarkerAlt className='marker-icon' size={40} />
-                {mapstats.zoom >= 12 && <p className='applicanttext'>{place.applicant}</p>}
+                {/* {mapstats.zoom >= 12 && <p className='applicanttext'>{place.applicant}</p>} */}
               </Marker>
               )
             })}
           </Map>
-        </div>
+        </div> 
       ) : (
         <div>Getting the location data&hellip; </div>
       )}
