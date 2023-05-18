@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/foodtrackmap/static/css/main.91ca81ae.css",
+    "main.js": "/foodtrackmap/static/js/main.73e932bd.js",
+    "static/js/483.a6d02a45.chunk.js": "/foodtrackmap/static/js/483.a6d02a45.chunk.js",
+    "index.html": "/foodtrackmap/index.html",
+    "main.91ca81ae.css.map": "/foodtrackmap/static/css/main.91ca81ae.css.map",
+    "main.73e932bd.js.map": "/foodtrackmap/static/js/main.73e932bd.js.map",
+    "483.a6d02a45.chunk.js.map": "/foodtrackmap/static/js/483.a6d02a45.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91ca81ae.css",
+    "static/js/main.73e932bd.js"
+  ]
+}
