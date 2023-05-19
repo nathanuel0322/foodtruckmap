@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/foodtruckmap/static/css/main.98168b16.css",
-    "main.js": "/foodtruckmap/static/js/main.6eab0b6f.js",
-    "static/js/483.df060ccf.chunk.js": "/foodtruckmap/static/js/483.df060ccf.chunk.js",
+    "main.css": "/foodtruckmap/static/css/main.2cfea305.css",
+    "main.js": "/foodtruckmap/static/js/main.e50febbf.js",
+    "static/js/483.69e68f51.chunk.js": "/foodtruckmap/static/js/483.69e68f51.chunk.js",
     "index.html": "/foodtruckmap/index.html",
-    "main.98168b16.css.map": "/foodtruckmap/static/css/main.98168b16.css.map",
-    "main.6eab0b6f.js.map": "/foodtruckmap/static/js/main.6eab0b6f.js.map",
-    "483.df060ccf.chunk.js.map": "/foodtruckmap/static/js/483.df060ccf.chunk.js.map"
+    "main.2cfea305.css.map": "/foodtruckmap/static/css/main.2cfea305.css.map",
+    "main.e50febbf.js.map": "/foodtruckmap/static/js/main.e50febbf.js.map",
+    "483.69e68f51.chunk.js.map": "/foodtruckmap/static/js/483.69e68f51.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.98168b16.css",
-    "static/js/main.6eab0b6f.js"
+    "static/css/main.2cfea305.css",
+    "static/js/main.e50febbf.js"
   ]
 }
