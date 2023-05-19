@@ -1,6 +1,6 @@
 {
-  "homepage": "https://nathanuel0322.github.io/foodtrackmap/",
-  "name": "foodtrackmap",
+  "homepage": "https://nathanuel0322.github.io/foodtruckmap/",
+  "name": "foodtruckmap",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
