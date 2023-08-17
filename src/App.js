@@ -32,54 +32,13 @@ function App() {
       zoom: 14.5
     });
     setCurrentPlace(markerid)
-    // mapRef.current.panTo(new window.google.maps.LatLng(lat, lng))
   }
 
   useEffect(() => {
     fetch("https://data.sfgov.org/resource/rqzj-sfat.json")
       .then(response => response.json())
       .then(data => {
-        // const geojson = {
-        //   type: 'FeatureCollection',
-        //   features: []
-        // };
-        
-        // console.log("data is: ", data)
-        // console.log("type of data is: ", typeof data)
         setPlaces(data.filter((place) => parseFloat(place.latitude) > 0)) 
-        // data.forEach((place) => {
-        //   if (parseFloat(place.latitude) > 0) {
-        //     geojson.features.push({
-        //       type: 'Feature',
-        //       geometry: {
-        //         type: 'Point',
-        //         coordinates: [parseFloat(place.longitude), parseFloat(place.latitude)]
-        //       },
-        //       properties: {
-        //         title: place.applicant,
-        //         description: place.optionaltext,
-        //         facilitytype: place.facilitytype,
-        //         address: place.address,
-        //         fooditems: place.fooditems ? place.fooditems : ''
-        //       }
-        //     })
-        //   }
-        // })
-        // console.log("geojson is: ", geojson)
-        // setPlaces(geojson)
-
-        // mapRef.current.loadImage('https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png', (error, image) => {
-        //     if (error) throw error;
-        //     console.log("image is: ", image)
-        //     mapRef.current.addImage('custom-marker', image);
-        //     // Add a GeoJSON source with 2 points
-        //     mapRef.current.addSource('points', {
-        //       type: 'geojson',
-        //       data: geojson
-        //       // geojson: places
-        //     });
-        //   });
-        // })
       })
   }, [])
 
@@ -149,8 +108,6 @@ function App() {
           activeBoxShadow="0px 0px 1px 2px #fffc35"
           uncheckedIcon={<div className="flex flex-col justify-center items-center"><BsSun size={20} color="white" /></div>}
           checkedIcon={<div className="flex flex-col justify-center items-center"><BsMoon size={20} color="white" /></div>}
-          // uncheckedHandleIcon={<BsSun size={20} color="orange" />}
-          // checkedHandleIcon={<BsMoon size={20} color="yellow" />}
           className="react-switch"
           id="small-radius-switch"
         />
@@ -169,23 +126,6 @@ function App() {
         style={{ width: '100vw', height: '100vh' }}
         mapStyle={checked ? "mapbox://styles/mapbox/navigation-night-v1" : "mapbox://styles/mapbox/streets-v12"}
       >
-        {/* <Source type="geojson" data={places}>
-          <Layer
-            id="point"
-            type="symbol"
-            // paint={{
-            //   'circle-radius': 6,
-            //   'circle-color': '#B42222'
-            // }}
-            layout={{
-              'icon-image': 'star',
-              'text-field': ['get', 'title'],
-              'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-              'text-offset': [0, 1.25],
-              'text-anchor': 'top'
-            }}
-          />
-        </Source> */}
         {markers}
       </Map>
       {filteredplaces.length > 0 && transitions((style, objectId) => {
@@ -193,11 +133,9 @@ function App() {
         if (!filteredPlace) return null;
         return (
           <animated.div id='transitiondiv' style={style} className='flex flex-col absolute left-1/2'>
-            {/* <div id="locationdiv" className='absolute'> */}
             <p>{filteredPlace.applicant}</p>
             <p>{filteredPlace.address}</p>
             <p>{filteredPlace.fooditems && filteredPlace.fooditems.charAt(0).toUpperCase() + filteredPlace.fooditems.slice(1)}</p>
-            {/* </div> */}
           </animated.div>
         );
       })}
