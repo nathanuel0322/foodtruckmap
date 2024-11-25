@@ -1,153 +1,160 @@
 .App {
-  text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  height: 100vh;
-  width: 100vw;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+        "Open Sans", "Helvetica Neue", sans-serif;
+    height: 100vh;
+    width: 100vw;
 }
+
 .marker {
-  width: 40px;
-  border-radius: 100%;
-  -webkit-user-select: none;
-  user-select: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width: 40px;
+    border-radius: 100%;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .marker:hover {
-  z-index: 1;
+    z-index: 1;
 }
+
 .title {
-  display: flex;
-  flex-direction: column;
-  top: 2%;
-  background: linear-gradient(to right, blue, red);
-  color: white;
-  padding: 0.25rem 1rem;
-  border-radius: 8px;
-  font-size: 1.25rem;
-  width: 50%;
-  margin-inline: auto;
-  left: 0px;
-  right: 0px;
-  line-height: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    top: 2%;
+    background: linear-gradient(to right, blue, red);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    width: 50%;
+    margin-inline: auto;
+    left: 0px;
+    right: 0px;
+    line-height: 2.25rem;
 }
 .react-switch > :first-child > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.title > :first-child, #transitiondiv > :first-child {
-  font-size: 1.5rem;
+.title > :first-child,
+#transitiondiv > :first-child {
+    font-size: 1.5rem;
 }
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 .mapboxgl-marker {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 #searchbar {
-  background: transparent;
-  text-align: center;
-  color: cyan;
+    background: transparent;
+    text-align: center;
+    color: cyan;
 }
 #searchbar::placeholder {
-  color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+        "Open Sans", "Helvetica Neue", sans-serif;
 }
 .applicanttext {
-  font-size: 1.25rem;
-  border-radius: 0.25rem;
-  width: -moz-fit-content;
-  width: fit-content;
-  text-align: center;
-  background: linear-gradient(to bottom right, red, blue);
-  color: white;
-  padding: 0.25rem 0.5rem;
+    font-size: 1.25rem;
+    border-radius: 0.25rem;
+    width: -moz-fit-content;
+    width: fit-content;
+    text-align: center;
+    background: linear-gradient(to bottom right, red, blue);
+    color: white;
+    padding: 0.25rem 0.5rem;
 }
 #transitiondiv {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  top: 84%;
-  width: 50%;
-  background: darkorange;
-  border-radius: 8px;
-  padding: 0.35rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    top: 84%;
+    width: 50%;
+    background: darkorange;
+    border-radius: 8px;
+    padding: 0.35rem;
 }
 #transitiondiv p {
-  margin-block: 0.15rem;
-  font-size: 1rem;
-  text-shadow: 10px 10px 17px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(to right, blue, red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 800;
+    margin-block: 0.15rem;
+    font-size: 1rem;
+    text-shadow: 10px 10px 17px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to right, blue, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
 }
 #switchparent {
-  left: 0.65rem;
+    left: 0.65rem;
 }
 
 @media (max-width: 633px) {
-  .title {
-    left: auto;
-    right: 5%;
-    margin-block: auto;
-    width: 60%;
-  }
+    .title {
+        left: auto;
+        right: 5%;
+        margin-block: auto;
+        width: 60%;
+    }
 
-  #transitiondiv {
-    top: 80%;
-    width: 80%;
-  }
-  
-  #searchbar::placeholder {
-    font-size: 1rem;
-  }
+    #transitiondiv {
+        top: 80%;
+        width: 80%;
+    }
+
+    #searchbar::placeholder {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
-  /* Adjust the title font size for even smaller screens */
-  .title > :first-child, #transitiondiv > :first-child {
-    font-size: 1rem;
-  }
+    /* Adjust the title font size for even smaller screens */
+    .title > :first-child,
+    #transitiondiv > :first-child {
+        font-size: 1rem;
+    }
 
-  .title {
-    right: 1rem;
-    line-height: 1.75rem;
-  }
-  #transitiondiv > :last-child {
-    font-size: 0.8rem;
-  }
+    .title {
+        right: 1rem;
+        line-height: 1.75rem;
+    }
+    #transitiondiv > :last-child {
+        font-size: 0.8rem;
+    }
 }
